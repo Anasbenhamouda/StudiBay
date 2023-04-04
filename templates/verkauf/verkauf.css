@@ -6,22 +6,16 @@ h1, h2 {
     margin: auto 0px;
 }
 
-/* .card-title {
-
-} */
-
 .preis {
     font-size: 25px;
-    text-align: center;
+ 
 }
 
-.description {
-    font-size: 15px;
+#buch1, #buch2, #buch3, #buch4, #buch5, #buch6 {
+  height: 400px;
+  width: 400px;
 }
 
-* {
-    /* margin: auto 0px; */
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-    zoom: 99%;
+.card {
+    height: 700px;
 }
