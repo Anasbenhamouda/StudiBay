@@ -1,59 +1,90 @@
-<html>
-<header><h1>I am waiting for the header</h1></header><br><br>
-<head>
-  <meta charset="UTF-8"/>
-  <title>Bücher</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="verkauf.css"/>
-</head>
+<!DOCTYPE html>
+<html lang="de">
+  <header><h1>I am waiting for the header</h1></header><br><br>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Bücher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="verkauf.css"/>
+  </head>
 
-<nav>
-  <ol>
-    <li><a href="../startseite/index.html">Startseite</a></li>
-    <li aria-current="page">Bücher</li>
-  </ol>
-</nav>
-
-<h1>Bücher</h1>
-<h2>Leseratte? Hier findest du gebrauchte Bücher zu günstigen Preisen</h2>
-<article class="text-center row mt-3">
-<div class="card col-md-3 ml-4" style="width: 18rem;">
-        <img src="img/Buecher/Sturm.gif" class="card-img-top">
-        <div class="card-body">
-        <h2 class="card-title">Ostfriesen STURM</h2>
-        <p class="description">Der 16. Fall für Ostfrieslands Top-Ermittlerin Ann Kathrin Klaasen.</p>
-        <p class="card-text">13€</p>
+  <body>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../startseite/index.html">Startseite</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Verkauf_Bücher</li>
+      </ol>
+    </nav>
+    
+    <div class="container">
+      <h1 class="subtitle mb-5 mt-5">Bücher</h1>
+      <h2>Leseratte? Hier findest du gebrauchte Bücher zu günstigen Preisen</h2>
+      <div class="row">
+        <div class="card col">
+          <img src="img/Buecher/Sturm.gif" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Ostfriesen STURM</h5>
+              <p class="description">Der 16. Fall für Ostfrieslands Top-Ermittlerin Ann Kathrin Klaasen von Nummer-1-Bestsellerautor Klaus-Peter Wolf.</p>
+			        <p class="preis"><b>7€</b></p>
+        	  </div>
+            <div class="card-footer text-muted row">
+              <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
+            </div>  
         </div>
-        <div class="card-footer text-muted row">
-        <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
-        </div>  
-    </div>
-  
-    <div class="card col-md-3 ml-4" style="width: 18rem;">
-      <img src="img/Buecher/WisoSteuer.gif" class="card-img-top">
-        <div class="card-body">
-          <h2 class="card-title">WISO Steuer</h2>
-          <p class="description">Steuererklärung einfach gemacht!</p>
-          <p class="card-text">31,99€</p>
-        </div>
-        <div class="card-footer text-muted row">
-            <a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
-        </div>  
-    </div>
       
-   <div class="card col-md-3 ml-4" style="width: 18rem;">
-      <img src="img/Buecher/Blaubeerjahre.gif" class="card-img-top">
-        <div class="card-body">
-          <h2 class="card-title">Blaubeerjahre</h2>
-          <p class="description">Drei Schwestern, eine Blaubeerfarm und ein altes Geheimnis, das nun endlich ans Licht kommt.</p>
-          <p class="card-text">10€</p>
+        <div class="card col">
+          <img src="img/Buecher/WisoSteuer.gif" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">WISO Steuer</h5>
+              <p class="description">Steuererklärung war nicht so einfach...<br>In diesem Buch finden Sie alles zum Thema Steuererklärung:)<br>Hol dir schnell dein Geld zurück!</p>
+              <p class="preis"><b>15,99€</b></p>
+            </div>
+            <div class="card-footer text-muted row">
+              <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
+            </div>  
         </div>
-      <div class="card-footer text-muted row">
-        <a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
-      </div>  
-    </div>
-  </article>
-  <br><br>
+          
+        <div class="card col">
+          <img src="img/Buecher/Blaubeerjahre.gif" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Blaubeerjahre</h5>
+              <p class="description"><br>Entdecken Sie die Geschichte von 3 Schwestern, eine Blaubeerfarm und ein altes Geheimnis, das nun endlich ans Licht kommt.</p>
+              <p class="preis"><b>5€</b></p>
+            </div>
+            <div class="card-footer text-muted row">
+              <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
+            </div>  
+        </div>
 
-<footer><h1>I am waiting for the footer</h1></footer>
+        <div class="card col">
+          <img src="img/Buecher/Elternabend.gif" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Elternabend</h5>
+              <p class="description"><br>Stell dir vor...<br>...du musst eine halbe Ewigkeit auf einem Elternabend verbringen. Dabei hast du gar kein Kind!</p>
+              <p class="preis"><b>9€</b></p>
+            </div>
+            <div class="card-footer text-muted row">
+              <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
+            </div>  
+        </div>
+
+        <div class="card col">
+          <img src="img/Buecher/RichDad.gif" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rich Dad, poor Dad</h5>
+              <p class="description">Warum bleiben die Reichen reich und die Armen arm? Weil die Reichen ihren Kindern beibringen, wie sie mit Geld umgehen müssen.</p>
+              <p class="preis"><b>7,99€</b></p>
+            </div>
+            <div class="card-footer text-muted row">
+              <a href=a href="Zahlung.html" class="btn btn-success">In den Warenkorb</a>
+            </div>  
+        </div><br><br>
+      </div>
+
+    <footer class="text-secondary mt-4 bg-dark">
+      <div>  
+        <p>&copy; StudiBay</p>
+      </div>
+    </footer>
+  </body>
 </html>
