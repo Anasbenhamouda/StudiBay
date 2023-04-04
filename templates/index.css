@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Mountains+of+Christmas&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Righteous&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.wrapper .multi_color_border {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #33A5FF 0%, #0E1BC4 25%, #0E1BC4 25%, #33A5FF 50%, #33A5FF 50%, #0E1BC4 75%, #0E1BC4 75%, #33A5FF 100%);
+}
+
+.wrapper .top_nav {
+    margin-top: 5px;
+    width: 100%;
+    height: 65px;
+    background: #fff;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .top_nav .left {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .top_nav .left .logo p {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Righteous', cursive;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.wrapper .top_nav .left .logo p span {
+    color: #33A5FF;
+    font-family: 'Righteous', cursive;
+}
+
+.wrapper .top_nav .right ul {
+    display: flex;
+}
+
+.wrapper .top_nav .right ul li {
+    margin: 0 12px;
+}
+
+.wrapper .top_nav .right ul li a {
+    text-decoration: none;
+}
+
+.wrapper .top_nav .right ul li:last-child {
+    background: white;
+    margin-right: 0;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.wrapper .top_nav .right ul li:hover {
+    background: #08BDFC;
+}
+
+.wrapper .top_nav .right ul li a {
+    display: block;
+    padding: 8px 10px;
+    color: #666666;
+}
+
+.wrapper .top_nav .right ul li:hover a {
+    color: #fff;
+}
+
+.wrapper .bottom_nav {
+    width: 100%;
+    background: #f9f9f9;
+    height: 45px;
+    padding: 0 50px;
+}
+
+.wrapper .bottom_nav ul {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .bottom_nav ul li a {
+    color: #494949;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: center;
+}
+
+.wrapper .banner img {
+    width: 100%;
+    height: 400px;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.material-symbols-rounded {
+    padding-top: 10px;
+}
+
+.wrapper .top_nav .left .logo {
+    padding-top: 8px;
+}
+
+.wrapper .top_nav .right {
+    padding-top: 8px;
+}
+
+.navbar .container-fluid .collapse .navbar-nav .nav-item {
+    padding-left: 30px;
+}
+
+.dropdown-item:active {
+    background-color: #08BDFC;
+}
+
+.carousel-inner {
+    width: 80%;
+    margin-left: 10%;
+}
+
+footer .container button {
+    background-color: #08BDFC;
+    border-color: #08BDFC;
+}
+
+footer .container .row a {
+    color: #08BDFC;
+}
+
+.btn-primary {
+    background-color: #08BDFC;
+    border-color: #08BDFC;
+}

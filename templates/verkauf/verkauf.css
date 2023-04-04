@@ -1,0 +1,25 @@
+h1, h2 {
+    text-align: center;
+}
+
+.btn {
+   
+}
+
+article {
+   
+}
+
+.description {
+    font-size: 22px;
+}
+
+.card col-md-3 ml-4{
+    zoom: 25%;
+}
+
+* {
+    /* margin: auto 0px; */
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
