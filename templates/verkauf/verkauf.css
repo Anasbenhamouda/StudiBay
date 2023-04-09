@@ -2,24 +2,20 @@ h1, h2 {
     text-align: center;
 }
 
-.btn {
-   
+.row {
+    margin: auto 0px;
 }
 
-article {
-   
+.preis {
+    font-size: 25px;
+ 
 }
 
-.description {
-    font-size: 22px;
+#buch1, #buch2, #buch3, #buch4, #buch5, #buch6 {
+  height: 400px;
+  width: 400px;
 }
 
-.card col-md-3 ml-4{
-    zoom: 25%;
-}
-
-* {
-    /* margin: auto 0px; */
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-}
+.card {
+    height: 700px;
+} 
