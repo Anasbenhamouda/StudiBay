@@ -12,8 +12,13 @@ h1, h2 {
 }
 
 #buch1, #buch2, #buch3, #buch4, #buch5, #buch6 {
-  height: 400px;
-  width: 400px;
+    height: 400px;
+    width: 400px;
+}
+
+#elek1, #elek2, #elek3, #elek4, #elek5, #elek6 {
+    height: 400px;
+    width: 400px;
 }
 
 .card {
