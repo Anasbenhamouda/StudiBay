@@ -10,28 +10,21 @@ h1{
 .fotos{
     
     display: flex;
-    width: 400px;
-    height: 400px;
+    
     overflow: hidden;
-    padding: auto;
-    margin: auto;
+    
+    
 
    
 }
-
-
-.img {
-    display:flex;
-    height: 400px;
-    animation-duration: 10s;
-    animation-name: myImages;
-
-   
-    
-    
-  
-
+.card{
+    height: 700px;
+    width: 1700px;
 }
+
+
+
+
 
 
 .daten{

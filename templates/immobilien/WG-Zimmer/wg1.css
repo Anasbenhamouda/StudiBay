@@ -1,0 +1,47 @@
+h3{
+    padding-top: 15px;
+    text-align: center;
+}
+
+.daten{
+    text-align: center;
+    padding-top: 50px;
+    word-spacing: 150px;
+}
+.info{
+    text-align: center;
+    word-spacing: 100px;
+}
+#demo{
+    margin: auto;
+}
+
+
+.card-body{
+    
+    margin: 50px;
+    padding-top: 15px;
+    width: 1000px;
+    display: flex;
+    margin-left: 35px;
+    
+    
+}
+.card-text{
+   
+   padding-top: 50px;
+   margin-left: 100px;
+    
+    
+}
+.card-info{
+    margin: auto;
+    margin-left: 350px;
+    padding-top: 30px;
+}
+tr{
+    border-top: 2px solid gray ;
+    padding-top: 25px;
+}
+
+
