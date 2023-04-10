@@ -153,3 +153,7 @@ footer .container .row a {
     background-color: #08BDFC;
     border-color: #08BDFC;
 }
+
+.card img {
+    height: 220px;
+}
