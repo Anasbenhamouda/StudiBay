@@ -1,0 +1,16 @@
+.col-md-4 {
+    margin-bottom: 10px;
+}
+
+.card {
+    height: 470px;
+}
+
+.col-md-4 .card .btn {
+    position: absolute;
+    bottom: 10px;
+}
+
+.container img {
+    height: 230px;
+}
