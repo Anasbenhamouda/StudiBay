@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Righteous&display=swap');
+
+h2 {
+    text-align: center;
+     color: black;
+     font-size: 60%;
+     font-family: 'Righteous', cursive;
+}
+
+.img-area {
+    width: 1170px;
+    margin: 10% auto;
+}
+
+.single-img {
+    position: relative;
+    width: 30%;
+    float: left;
+    margin: 0 1%;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:  #08BDFC;;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .6s ease;
+
+}
+
+.single-img:hover .overlay {
+    height: 100%;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.text span {
+    font-weight: 300;
+    color: black;
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.text h2 {
+    font-family: 'Righteous', cursive;
+    font-size: 15px;
+}
+
+.text h3 {
+    font-family: 'Righteous', cursive;
+    font-size: 12px;
+}
+
+.single-img .overlay  a {
+	text-decoration: none;
+    text-align: center;
+	color: black;
+	font-size: 15px;
+    font-weight: bold;
+	border-radius: 12px;
+	padding: 12px 30px;
+	background-color: #fff;
+}

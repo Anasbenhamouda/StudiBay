@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Righteous&display=swap');
+
+
+section{
+  padding:3rem 9%;
+  background-color: #BCD8F1;
+}
+
+.heading{
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.heading h1{
+  font-size: 50px;
+  color: black;
+  font-family: 'Righteous', cursive;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.heading p {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 22px;
+}
+
+.content .box-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content .box-container .box{
+  flex:1 1 30rem;
+  margin:1rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: .5rem;
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+  height: 25rem;
+  cursor: pointer;
+}
+
+.content .box-container .box img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content .box-container .box .info{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top:0; left: 0;
+  height: 100%;
+  width: 100%;
+  background:rgba(255,255,255,.8);
+  text-align: center;
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+.content .box-container .box:hover .info{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.content .box-container .box:hover img{
+  transform: scale(1.3);
+}
+
+.content .box-container .box .info h3{
+  font-size: 3rem;
+  font-family: 'Righteous', cursive;
+  color:var(--black);
+}
+
+.content .box-container .box .info p{
+  font-size: 1.7rem;
+  color:#333;
+  padding:1rem;
+}
+
+.content .box-container .box .info a {
+	text-decoration: none;
+    text-align: center;
+	color: white;
+	font-size: 25px;
+    font-weight: bold;
+	border-radius: 12px;
+	padding: 12px 30px;
+	background-color: #08BDFC;
+}
