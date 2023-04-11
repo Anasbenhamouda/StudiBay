@@ -9,7 +9,7 @@ body {
 section {
 	width: 100%;
 	height: 100vh;
-	background: url("/Users/angelinabaklau/Desktop/StudiBay/Veranstaltungen/Party/party1.jpg");
+	background: url("party1.jpg");
 	background-size: cover;
 }
 		
