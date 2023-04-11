@@ -11,9 +11,9 @@ h1, h2 {
  
 }
 
-#buch1, #buch2, #buch3, #buch4, #buch5, #buch6 {
-  height: 400px;
-  width: 400px;
+#img1, #img2, #img3, #img4, #img5, #img6 {
+    height: 400px;
+    width: 400px;
 }
 
 .card {
