@@ -7,22 +7,11 @@ h1{
     margin-left: 280px;
     padding-top: 50px;
 }
-.fotos{
-    
-    display: flex;
-    
-    overflow: hidden;
-    
-    
 
-   
+.image{
+    width: 400px;
+    height: 650px;
 }
-.card{
-    height: 700px;
-    width: 1700px;
-}
-
-
 
 
 
