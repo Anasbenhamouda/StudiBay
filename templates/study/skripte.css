@@ -1,9 +1,17 @@
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.script {
+    margin-top: 20px;
+}
+
+.bilder {
+    width: 40%;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 .script {
-    margin-top: 20px;
+    background-color: #bdbdbd;
+}
+
+.vorschau {
+    margin-right: 10px;
 }
