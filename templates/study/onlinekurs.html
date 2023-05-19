@@ -7,6 +7,9 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/sessionHandling.js"></script>
+    <script src="../js/shopAndBasket.js"></script>
     <title>Online Kurse</title>
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="onlinekurs.css">
@@ -90,80 +93,20 @@
 
     <h1 style="text-align: center;padding-top: 30px;">Online Kurse</h1>
 
-    <!-- Kurse -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="../img/docker.jpeg " class="card-img-top " alt="docker ">
-                    <div class="card-body">
-                        <h5 class="card-title ">Docker komplett: Vom Anfänger zum Profi</h5>
-                        <p class="card-text ">Lerne alles zum Thema Docker (Dockerfiles, Docker Compose, bis hin zum Deployment mit Swarm oder Kubernetes)</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €19.99</h6>
-                        <a href="# " class="btn btn-primary">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ">
-                <div class="card ">
-                    <img src="../img/php.png " class="card-img-top " alt="php ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">PHP: Der ultimative Komplettkurs für Webentwicklung mit PHP</h5>
-                        <p class="card-text ">DWerde mit Praxis zum kompletten Webentwickler: Formulare, Datenbanken (MySQL), Objektorientierung, MVC-Pattern</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €15.99</h6>
-                        <a href="# " class="btn btn-primary ">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ">
-                <div class="card ">
-                    <img src="../img/js.png " class="card-img-top " alt="js ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Die komplette JavaScript Masterclass: Vom Anfänger zum Profi</h5>
-                        <p class="card-text ">Lerne Schritt für Schritt modernes JavaScript, bis hin zu ES6 und höher. Mit vielen nützlichen Übungen aus der Praxis</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €14.99</h6>
-                        <a href="# " class="btn btn-primary ">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-md-4 ">
-                <div class="card ">
-                    <img src="../img/html.jpg " class="card-img-top " alt="html ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">HTML5 + CSS3: Vom Anfänger zum Webentwickler 2023</h5>
-                        <p class="card-text ">Lerne systematisch modernes HTML und CSS. Anschauliche Beispiele, CSS3, mobile-first Webdesign, Flexbox & SVG</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €17.99</h6>
-                        <a href="# " class="btn btn-primary ">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ">
-                <div class="card ">
-                    <img src="../img/git.jpg " class="card-img-top " alt="git ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Modernes Git - Grundlagen & Vertiefung</h5>
-                        <p class="card-text ">Lerne alle wichtigen Git Konzepte, Teamwork Workflows, GitHub… für Softwareentwicklung und kreatives Schreiben</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €14.99</h6>
-                        <a href="# " class="btn btn-primary ">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 " style=" margin-bottom: 100px; ">
-                <div class="card ">
-                    <img src="../img/python.jpg " class="card-img-top " alt="python ">
-                    <div class="card-body ">
-                        <h5 class="card-title ">Python - Das Python Grundlagen Bootcamp - Von 0 auf 100!</h5>
-                        <p class="card-text ">Lerne Python inkl. OOP, Data Science, OpenCV, Web Scraping, E-Mails, GUI, etc.</p>
-                        <h6 class="card-subtitle mb-2 text-muted ">Preis: €17.99</h6>
-                        <a href="# " class="btn btn-primary ">In den Einkaufswagen</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <table id="produktliste">
+        <thead>
+            <tr class="kopfliste">
+                <th id="bildueberschrift">Bild</th>
+                <th>Name</th>
+                <th>Beschreibung</th>
+                <th>Preis</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
 
+        </tbody>
+    </table>
 
     <footer class="bg-dark text-light py-3 ">
         <div class="container ">
@@ -195,6 +138,26 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            console.log('loading all products');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/produkt/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function(response) {
+                console.log(response);
+                renderProducts('#produktliste > tbody', response);
+            }).fail(function(jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                alert('Ein Fehler ist aufgetreten');
+            });
+        });
+    </script>
 </body>
 
 </html>
