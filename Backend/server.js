@@ -62,22 +62,22 @@ try {
     const TOPLEVELPATH = '/api';
     console.log('Binding enpoints, top level Path at ' + TOPLEVELPATH);
 
-    var serviceRouter = require('./services/land.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //var serviceRouter = require('./services/land.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
     serviceRouter = require('./services/adresse.js');
     app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/person.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/person.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
 
-    serviceRouter = require('./services/branche.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/branche.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/firma.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/firma.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
 
@@ -86,8 +86,8 @@ try {
 
 
 
-    serviceRouter = require('./services/termin.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/termin.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
 
@@ -107,24 +107,24 @@ try {
     app.use(TOPLEVELPATH, serviceRouter);
 
 
-    serviceRouter = require('./services/bestellung.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/bestellung.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
-    serviceRouter = require('./services/speisenart.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //erviceRouter = require('./services/speisenart.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/einheit.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/einheit.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/zutat.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //erviceRouter = require('./services/zutat.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/bewertung.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/bewertung.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/gericht.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/gericht.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
 
@@ -139,23 +139,23 @@ try {
 
 
 
-    serviceRouter = require('./services/filmgenre.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/filmgenre.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/kinosaal.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/kinosaal.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/reservierer.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/reservierer.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/film.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/film.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/reservierung.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/reservierung.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/vorstellung.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/vorstellung.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
     serviceRouter = require('./services/benutzer.js');
