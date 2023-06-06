@@ -135,9 +135,25 @@ function renderBasket(parentNode) {
                 $('<td>')
                 .append($('<button class="btn btn-primary">')
                     .attr('type', 'button')
+                    .attr('onClick', 'decrementItemCount('+ idx +')')
+                    .text('-1')
+                )                
+            );
+            node.append(
+                $('<td>')
+                .append($('<button class="btn btn-primary">')
+                    .attr('type', 'button')
+                    .attr('onClick', 'incrementItemCount('+ idx +')')
+                    .text('+1')
+                )                
+            );
+            node.append(
+                $('<td>')
+                .append($('<button class="btn btn-primary">')
+                    .attr('type', 'button')
                     .attr('onClick', 'removeBasketPosition(' + idx + ')')
                     .text('Entfernen')
-                )
+                )                
             );
 
             // output node
@@ -170,6 +186,23 @@ function removeBasketPosition(idx) {
     }
 
     // redraw basket
+    renderBasket('#basket > tbody');
+}
+
+function incrementItemCount(posInBasket) {     
+    console.log('increasing amount');
+    basket[posInBasket].amount++;
+    setJSONSessionItem('shoppingBasket', basket);
+    renderBasket('#basket > tbody');
+}
+
+function decrementItemCount(posInBasket) {
+    console.log('decreasing amount');
+    basket[posInBasket].amount--;
+    if (basket[posInBasket].amount < 0) {
+        basket[posInBasket].amount = 0;
+    }
+    setJSONSessionItem('shoppingBasket', basket);   
     renderBasket('#basket > tbody');
 }
 

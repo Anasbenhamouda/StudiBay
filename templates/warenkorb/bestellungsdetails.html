@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>bestellungsdetails</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+        <script src="../js/sessionHandling.js"></script>
+        <script src="../js/urlParameter.js"></script>
+        <script src="../js/shopAndBasket.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Übersicht  Bestellungen</h1>
+
+        <table>
+            <!-- <tr>
+                <td rowspan="5" id="productPicture">Kein Bild vorhanden</td>
+                <td>ID:</td>
+                <td id="productId"></td>
+            </tr> -->
+            <tr>
+                <td>Name:</td>
+                <td id="productName"></td>
+            </tr>
+            <tr>
+                <td>Preis:</td>
+                <td id="productPrice"></td>
+            </tr>
+            <tr>
+                <td>Menge:</td>  <!--Beschreibung-->
+                <td id="productDescription"></td>
+            </tr>
+            <tr>
+                <td>Summe:</td>  <!--Datenblatt-->
+                <td id="productSpecs">~</td>
+            </tr>
+        </table>
+
+        <br><br>
+        <a href="../warenkorb/warenkorbseite.html">zum Warenkorb</a>
+        
+        <script>
+
+        $(document).ready(function() {
+            console.log('loading specific product');
+
+            // get id from url parameter
+            var id = -1;
+            
+            if (existsUrlParameter('id')) 
+                id = getUrlParameterValue('id');
+
+            console.log('target product id=' + id);
+
+            if (id == -1) {
+                alert('keine id erhalten');
+                return;
+            }                
+			
+			$.ajax({
+                url: 'http://localhost:8000/api/produkt/gib/' + id,
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+				dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                
+                /* hier können Sie das Produkt nach eigenen Wünschen rendern und ausgeben. 
+                Ich mache es mir einfach und gebe nur einen Teil aus */
+
+                $('#productId').text(response.id);
+                $('#productName').text(response.bezeichnung);
+                $('#productPrice').text(formatToEuro(response.bruttopreis));
+                $('#productDescription').text(response.beschreibung);
+
+                if (response.datenblatt != null) {
+                    $('#productSpecs').html('<a href="http://localhost:8000/' + response.datenblatt.dateipfad + '" target="_blank">Datenblatt</a>');
+                }
+
+                if (response.bilder != null) {
+                    if (response.bilder.length > 0) {
+                        var pic = response.bilder[0];
+                        $('#productPicture').html('<img src="http://localhost:8000/' + pic.bildpfad + '" title="' + response.bezeichnung+ '" alt="' + response.bezeichnung+ '">');
+                    }
+                }
+
+            }).fail(function (jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                alert('Ein Fehler ist aufgetreten');
+            });
+        });
+
+        
+        </script>
+    </body>
+</html>
