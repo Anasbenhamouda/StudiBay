@@ -9,6 +9,7 @@
     <title>Registrieren</title>
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,0,0" />
+    <link rel="stylesheet" href="signup.css">
 </head>
 <body>
     <div class="wrapper">
@@ -31,29 +32,37 @@
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-center mb-3">Ein Konto erstellen</h1>
-                        <form>
+                        <form id="signupForm">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" />
+                                <input type="text" class="form-control" id="name" name="name" required/>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail-Adresse</label>
-                                <input type="email" class="form-control" id="email" />
+                                <input type="email" class="form-control" id="email" name="email" required/>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Passwort</label>
-                                <input type="password" class="form-control" id="password" />
+                                <input type="password" class="form-control" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                            </div>
+                            <div id="message">
+                                <h3>Password must contain the following:</h3>
+                                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                <p id="number" class="invalid">A <b>number</b></p>
+                                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
                             </div>
                             <div class="mb-3">
                                 <label for="confirmPassword" class="form-label">Passwort bestätigen</label>
-                                <input type="password" class="form-control" id="confirmPassword" />
+                                <input type="password" class="form-control" id="confirmPsw" required/>
                             </div>
                             <div class="mb-3">
                                 <label for="resume" class="form-label">Studienbescheinigung hochladen</label>
-                                <input type="file" class="form-control" id="resume" accept="application/pdf" />
+                                <input type="file" class="form-control" id="resume" accept="application/pdf" required/>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="terms" />
+                                <input type="checkbox" checked="checked" class="form-check-input" id="terms" required/>
                                 <label for="terms" class="form-check-label">Ich akzeptiere die Bedingungen und Konditionen</label>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">
@@ -101,4 +110,75 @@
         </div>
     </footer>
 </body>
+<script>
+    var password = document.getElementById("psw");
+    var confirmPsw = document.getElementById("confirmPsw");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    function validatePassword() {
+        if (password.value != confirmPsw.value) {
+            confirmPsw.setCustomValidity("Die eingegebenen Passwörter stimmen nicht überein!");
+        } else {
+            confirmPsw.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirmPsw.onkeyup = validatePassword;
+
+    // When the user clicks on the password field, show the message box
+    password.onfocus = function() {
+      document.getElementById("message").style.display = "block";
+    }
+    
+    // When the user clicks outside of the password field, hide the message box
+    password.onblur = function() {
+      document.getElementById("message").style.display = "none";
+    }
+    
+    // When the user starts to type something inside the password field
+    password.onkeyup = function() {
+      // Validate lowercase letters
+      var lowerCaseLetters = /[a-z]/g;
+      if(password.value.match(lowerCaseLetters)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+      } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+      }
+      
+      // Validate capital letters
+      var upperCaseLetters = /[A-Z]/g;
+      if(password.value.match(upperCaseLetters)) {  
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+      } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+      }
+    
+      // Validate numbers
+      var numbers = /[0-9]/g;
+      if(password.value.match(numbers)) {  
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+      } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+      }
+      
+      // Validate length
+      if(password.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+      } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+      }
+    }
+</script>
 </html>
