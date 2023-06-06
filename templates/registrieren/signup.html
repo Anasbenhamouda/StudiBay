@@ -25,16 +25,23 @@
             </div>
         </div>
     </div>
+
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
+                        <section id="output"></section>
+
                         <h1 class="text-center mb-3">Ein Konto erstellen</h1>
-                        <form>
+                        <form id="uploadForm" enctype="multipart/form-data" method="post">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" />
+                                <label for="vorname" class="form-label">Vorname</label>
+                                <input type="text" class="form-control" id="vorname" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="nachname" class="form-label">Nachname</label>
+                                <input type="text" class="form-control" id="nachname" />
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail-Adresse</label>
@@ -56,7 +63,7 @@
                                 <input type="checkbox" class="form-check-input" id="terms" />
                                 <label for="terms" class="form-check-label">Ich akzeptiere die Bedingungen und Konditionen</label>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">
+                            <button type="submit" class="btn btn-primary w-100" value="aufladen">
                                 Konto erstellen
                             </button>
                         </form>
@@ -100,5 +107,116 @@
             </div>
         </div>
     </footer>
+    <script>
+        $(document).ready(function() {
+            loadAndDisplayAllPictures();
+        });
+
+        function loadAndDisplayAllPictures() {
+            console.log('loading all recs from api');
+
+            $.ajax({
+                url: 'http://localhost:8000/api/reservierer/alle',
+                method: 'get',
+                contentType: 'application/json; charset=utf-8',
+                cache: false,
+                dataType: 'json'
+            }).done(function(response) {
+                console.log(response);
+                //renderPictures(response);
+            }).fail(function(jqXHR, statusText, error) {
+                console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);
+                $('#output').html('Ein Fehler ist aufgetreten');
+                //$('#pics').text('Keine Bilder vorhanden');
+            });
+        }
+
+       /* function renderPictures(arr) {
+            var node = $('#pics');
+
+            node.empty();
+
+            if (arr.length == 0) {
+                node.text('Keine Bilder vorhanden');
+                return;
+            }
+
+            node.append($('<p>').text('Anzahl Bilder: ' + arr.length));
+
+            var table = $('<table>');
+            var thead = $('<thead>')
+                .append($('<tr>')
+
+                );
+
+            table.append(thead);
+
+            var tbody = $('<tbody>');
+
+            $(arr).each(function(idx, item) {
+
+                var tr = $('<tr>');
+
+                tr.append($('<td class="bilder">').html('<img src="http://localhost:8000/' + item.bildpfad + '" style="width:40%">'));
+
+                tr.append($('<a class="btn btn-primary vorschau">')
+                    .attr('href', 'http://localhost:8000/' + item.bildpfad)
+                    .text('Vorschau')
+                )
+
+                tr.append($('<a class="btn btn-primary">')
+                    .attr('href', 'http://localhost:8000/' + item.bildpfad)
+                    .attr('download', item.bildpfad)
+                    .text('download')
+                )
+
+                //console.log("++++++++++" + item.bildpfad);
+
+                tbody.append(tr);
+
+            });
+
+            table.append(tbody);
+
+            node.append(table);
+        }*/
+
+        $('#uploadForm').submit(function(event) {
+            console.log("form submit called");
+
+            // disable default event
+            event.preventDefault();
+
+            // only do something if some files selected
+            if ($('#dateien')[0].files.length == 0) {
+                alert('Sie haben keine Dateien ausgewählt');
+                return;
+            }
+
+            // convert data of form to object
+            var formData = new FormData(this);
+
+            // send form with ajax
+            $.ajax({
+                    url: 'http://localhost:8000/api/reservierer/aufladen',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: 'json'
+                })
+                .done(function(response) {
+                    //console.log('response received, uploaded files cnt=' + response.length);
+                    console.log($('#output').text(' Daten aufgeladen'));
+                    if (response.length > 0)
+                        loadAndDisplayAllPictures();
+                })
+                .fail(function(xhr) {
+                    console.log('error received');
+                    alert('Es ist ein Fehler beim Aufladen aufgetreten');
+                });
+        });
+    </script>
 </body>
 </html>
