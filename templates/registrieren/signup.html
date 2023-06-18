@@ -6,8 +6,10 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Registrieren</title>
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../index.css"> 
+    <!-- <script src= "../../Backend/services/reservierer.js"></script> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,0,0" />
     <link rel="stylesheet" href="signup.css">
 </head>
@@ -32,10 +34,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h1 class="text-center mb-3">Ein Konto erstellen</h1>
-                        <form id="signupForm">
+                        <form id="uploadForm" enctype="multipart/form-data" method="post">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required/>
+                                <label for="vorname" class="form-label">Vorname</label>
+                                <input type="text" class="form-control" id="vorname" name="vorname" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nachname" class="form-label">Nachname</label>
+                                <input type="text" class="form-control" id="nachname" name="nachname" required/>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail-Adresse</label>
@@ -109,6 +115,41 @@
             </div>
         </div>
     </footer>
+    <script>
+        $('#uploadForm').submit(function(event) {
+            console.log("form submit called");
+
+            // disable default event
+            event.preventDefault();
+
+            // convert data of form to object
+            var formData = new FormData(this);
+
+            // send form with ajax
+            $.ajax({
+                url: 'http://localhost:8000/api/reservierer',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json'
+            })
+            .done(function(response) {
+                console.log('response received');
+                console.log(response);
+                $('#output').html('<p>Operation erfolgreich</p>');
+                alert ('Die Daten wurde erfolgreich aufgeladen');
+                
+            })
+            .fail(function(xhr) {
+                console.log('error received');
+                console.log(xhr);
+                $('#output').html('<p>Es ist ein Fehler aufgetreten</p>');
+                
+            });
+        });
+    </script>
 </body>
 <script>
     var password = document.getElementById("psw");

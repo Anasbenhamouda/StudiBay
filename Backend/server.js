@@ -106,6 +106,9 @@ try {
     serviceRouter = require('./services/produkt.js');
     app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require('./services/reservierer.js');
+    app.use(TOPLEVELPATH, serviceRouter);
+
 
     //serviceRouter = require('./services/bestellung.js');
     //app.use(TOPLEVELPATH, serviceRouter);
